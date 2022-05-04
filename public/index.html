@@ -17,16 +17,15 @@
     </nav>
 
     <script>
-      fetch('http://localhost:3000/books', {
-        method:'post',
-        headers:{
-          'Content-Type': 'application/json'
-
+      fetch("http://localhost:3000/books", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify(Books)
+        body: JSON.stringify(Books),
       })
-      .then(res=>res.json())
-      .then(res=> console.log(res));
+        .then((res) => res.json())
+        .then((res) => console.log(res));
     </script>
   </body>
 </html>
