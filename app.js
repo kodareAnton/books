@@ -1,3 +1,5 @@
+// import { Books } from 'books.js';
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -5,6 +7,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var booksRouter = require('./routes/books');
+const req = require('express/lib/request');
 
 var app = express();
 
@@ -16,35 +20,40 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/books',booksRouter);
+
+// // skriver ut i routern bökerna i JSON format
+// app.get('/books', function(req, res){
+    
+//      let Books = [
+//         {
+//             title: 'Liftarens guide till galaxen',
+//             author: 'Douglas Adams',
+//             pages: 500,
+//             rented: false,
+//             bookId: 1
+//         },
+//         {
+//             title: 'Allt eller inget',
+//             author: 'Jenny Höök',
+//             pages: 1000,
+//             rented: false,
+//             bookId: 2
+//         },
+//         {
+//             title: 'Spionen på FRA!',
+//             author: 'Anders jallai',
+//             pages: 200,
+//             rented: false,
+//             bookId: 3
+//         }
+//     ]
+//     res.send(Books)
+// });
 
 
-// skriver ut i routern bökerna i JSON format
-app.get('/books', function(req, res){
-    res.send(
-        Books = [
-        {
-            title: 'Liftarens guide till galaxen',
-            author: 'Douglas Adams',
-            pages: 500,
-            rented: false,
-            bookId: 1
-        },
-        {
-            title: 'Allt eller inget',
-            author: 'Jenny Höök',
-            pages: 1000,
-            rented: false,
-            bookId: 2
-        },
-        {
-            title: 'Spionen på FRA',
-            author: 'Anders jallai',
-            pages: 200,
-            rented: false,
-            bookId: 3
-        }
-    ])
-});
+
+
 
 // Printa ut ett formulär
 app.get('/form', function(req, res){
@@ -78,6 +87,8 @@ app.get('/books/:bookId', function(req, res){
 app.get('/test', function(req, res){
     res.sendFile('public/test.html', {root:__dirname});
 })
+
+
 
 
 module.exports = app;

@@ -1,4 +1,4 @@
-Books = [
+ export const  Library = [
     {
         title: 'Liftarens guide till galaxen',
         author: 'Douglas Adams',
@@ -17,4 +17,4 @@ Books = [
         pages: 200,
         rented: false
     }
-]
+ ]

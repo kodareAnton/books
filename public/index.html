@@ -15,5 +15,18 @@
         <li><a href="http://localhost:3000/form">Formulär</a></li>
       </ul>
     </nav>
+
+    <script>
+      fetch('http://localhost:3000/books', {
+        method:'post',
+        headers:{
+          'Content-Type': 'application/json'
+
+        },
+        body:JSON.stringify(Books)
+      })
+      .then(res=>res.json())
+      .then(res=> console.log(res));
+    </script>
   </body>
 </html>
