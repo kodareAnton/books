@@ -22,55 +22,53 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books',booksRouter);
 
-// // skriver ut i routern bökerna i JSON format
-// app.get('/books', function(req, res){
-    
-//      let Books = [
-//         {
-//             title: 'Liftarens guide till galaxen',
-//             author: 'Douglas Adams',
-//             pages: 500,
-//             rented: false,
-//             bookId: 1
-//         },
-//         {
-//             title: 'Allt eller inget',
-//             author: 'Jenny Höök',
-//             pages: 1000,
-//             rented: false,
-//             bookId: 2
-//         },
-//         {
-//             title: 'Spionen på FRA!',
-//             author: 'Anders jallai',
-//             pages: 200,
-//             rented: false,
-//             bookId: 3
-//         }
-//     ]
-//     res.send(Books)
-// });
-
-
-
-
 
 // Printa ut ett formulär
 app.get('/form', function(req, res){
 
-    let printForm = `<h1> formulär </h1> </br>
+    let printForm = `<h1>User formulär</h1></br>
                     <form action="saveuser" method='post'>skriv ditt namn!<br>
-                    <input type='text' name='userName'>
+                    <input type='text' name='userName'><br>
+                    <p>skriv ditt Efternamn!</p><br>
+                    <input type='text' name='lastName'>
+                    <button>skicka</button></form>
+
+                    <h1>Lägg till bok</h1></br>
+                    <form action="saveBook" method='post'>Bokens namn!<br>
+                    <input type='text' name='bookName'><br>
+                    <p>skriv ditt Efternamn!</p><br>
+                    <input type='text' name='author'>
                     <button>skicka</button></form>
     `
     res.send(printForm)
 });
 
-// spara från formulär
-app.post('/saveuser', function(req,res){
-    res.send('Användare' + ' ' + req.body.userName)
-    console.log(req.body.userName);
+// spara formulär user
+app.post('/saveuser', function(req, res){
+
+    let users = [{
+        userName: 'Anton',
+        lastName: 'Tj'
+    }]
+    let saker = 4
+    res.send( users +  ' ' + saker +  ' ' + req.body.userName + ' ' + req.body.lastName)
 });
+// spara formulär books
+app.post('/saveBook', function(req, res){
+    res.send('bok' + ' ' + req.body.bookName + req.body.author);
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/json', function(req, res){
     let users = [{userName: 'Anton', lastName: 'Torkkeli'}, {userName: 'Jenny', lastName: 'Höök'}]

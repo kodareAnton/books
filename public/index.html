@@ -5,27 +5,24 @@
   </head>
 
   <body>
-    <h1>Böcker</h1>
+    <h1>Startsida</h1>
     <p>Välkommen</p>
 
     <nav>
       <ul>
         <li><a href="http://localhost:3000/form">Formulär</a></li>
         <li><a href="http://localhost:3000/books">Books</a></li>
-        <li><a href="http://localhost:3000/form">Formulär</a></li>
       </ul>
     </nav>
 
-    <script>
-      fetch("http://localhost:3000/books", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(Books),
-      })
-        .then((res) => res.json())
-        .then((res) => console.log(res));
-    </script>
+    <h2>
+      <a href="http://localhost:3000/books/1">Liftarens guid till galaxen</a>
+    </h2>
+    <h2>
+      <a href="http://localhost:3000/books/2">Allt eller inget</a>
+    </h2>
+    <h2>
+      <a href="http://localhost:3000/books/3">Spionen på FRA</a>
+    </h2>
   </body>
 </html>
