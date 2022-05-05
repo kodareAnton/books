@@ -26,7 +26,7 @@ app.use('/books',booksRouter);
 // Printa ut ett formulär
 app.get('/form', function(req, res){
 
-    let printForm = `<h1>User formulär</h1></br>
+    let printForm = `<h1> Anton User formulär</h1></br>
                     <form action="saveuser" method='post'>skriv ditt namn!<br>
                     <input type='text' name='userName'><br>
                     <p>skriv ditt Efternamn!</p><br>
@@ -46,12 +46,7 @@ app.get('/form', function(req, res){
 // spara formulär user
 app.post('/saveuser', function(req, res){
 
-    let users = [{
-        userName: 'Anton',
-        lastName: 'Tj'
-    }]
-    let saker = 4
-    res.send( users +  ' ' + saker +  ' ' + req.body.userName + ' ' + req.body.lastName)
+    res.send(req.body.userName + ' ' + req.body.lastName)
 });
 // spara formulär books
 app.post('/saveBook', function(req, res){
